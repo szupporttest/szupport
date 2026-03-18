@@ -213,6 +213,51 @@ textarea{min-height:146px;resize:vertical}
 footer{padding:36px 0 46px;background:rgba(5,10,18,.92);border-top:1px solid rgba(255,255,255,.06)}
 .footer-grid{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
 .footer-grid p{margin:0;color:var(--soft)}
+
+.nav-dropdown{position:relative;display:flex;align-items:center}
+.nav-dropdown-toggle{
+  appearance:none;border:0;background:none;color:#dce6f7;cursor:pointer;
+  font:inherit;font-weight:700;font-size:.88rem;white-space:nowrap;padding:0;position:relative
+}
+.nav-dropdown-toggle::after{
+  content:"▾";font-size:.72rem;margin-left:8px;color:var(--primary2)
+}
+.nav-dropdown-toggle::before{
+  content:"";position:absolute;left:0;bottom:-10px;width:0;height:2px;background:var(--primary);transition:.25s
+}
+.nav-dropdown:hover .nav-dropdown-toggle::before,
+.nav-dropdown.open .nav-dropdown-toggle::before{width:100%}
+.nav-dropdown-menu{
+  position:absolute;top:calc(100% + 18px);left:0;min-width:240px;padding:10px;
+  border-radius:20px;background:rgba(7,16,28,.98);border:1px solid var(--line);
+  box-shadow:var(--shadow);display:grid;gap:4px;opacity:0;pointer-events:none;
+  transform:translateY(10px);transition:.22s ease;z-index:1005
+}
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown.open .nav-dropdown-menu{
+  opacity:1;pointer-events:auto;transform:translateY(0)
+}
+.nav-dropdown-menu a{
+  padding:12px 14px;border-radius:14px;color:#dce6f7;font-weight:700
+}
+.nav-dropdown-menu a:hover{background:rgba(255,255,255,.05)}
+.mobile-group-title{
+  width:100%;padding:14px 0 10px;color:var(--primary2);font-weight:800;
+  letter-spacing:.04em;text-transform:uppercase;font-size:.78rem
+}
+.mobile-subnav{padding-left:18px !important}
+
+.reveal{
+  opacity:0;
+  transform:translateY(28px);
+  transition:opacity .7s ease, transform .7s ease;
+  will-change:opacity, transform;
+}
+.reveal.is-visible{
+  opacity:1;
+  transform:none;
+}
+
 @media (max-width:1320px){
   .desktop-nav{gap:12px}
   .desktop-nav a{font-size:.82rem}
@@ -329,13 +374,17 @@ footer{padding:36px 0 46px;background:rgba(5,10,18,.92);border-top:1px solid rgb
 
     <nav class="desktop-nav" aria-label="Fő navigáció">
       <a href="./">Főoldal</a>
-      <a href="cnc-maras.html">CNC marás</a>
-      <a href="cnc-esztergalas.html">CNC esztergálás</a>
-      <a href="alkatreszgyartas.html">Alkatrészgyártás</a>
-      <a href="szerszamkeszites.html">Szerszámkészítés</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-toggle" type="button" aria-expanded="false">Szolgáltatások</button>
+        <div class="nav-dropdown-menu" aria-label="Szolgáltatások almenü">
+          <a href="cnc-maras.html">CNC marás</a>
+          <a href="cnc-esztergalas.html">CNC esztergálás</a>
+          <a href="alkatreszgyartas.html">Alkatrészgyártás</a>
+          <a href="szerszamkeszites.html">Szerszámkészítés</a>
+        </div>
+      </div>
       <a href="geppark.html">Géppark</a>
       <a href="rolunk.html">Rólunk</a>
-      <a href="#ajanlatkeres">Ajánlatkérés</a>
       <a href="#kapcsolat">Kapcsolat</a>
     </nav>
 
@@ -349,14 +398,15 @@ footer{padding:36px 0 46px;background:rgba(5,10,18,.92);border-top:1px solid rgb
 
       <nav class="mobile-nav" aria-label="Mobil navigáció">
         <a href="./">Főoldal</a>
-        <a href="cnc-maras.html">CNC marás</a>
-        <a href="cnc-esztergalas.html">CNC esztergálás</a>
-        <a href="alkatreszgyartas.html">Alkatrészgyártás</a>
-        <a href="szerszamkeszites.html">Szerszámkészítés</a>
+        <div class="mobile-group-title">Szolgáltatások</div>
+        <a class="mobile-subnav" href="cnc-maras.html">CNC marás</a>
+        <a class="mobile-subnav" href="cnc-esztergalas.html">CNC esztergálás</a>
+        <a class="mobile-subnav" href="alkatreszgyartas.html">Alkatrészgyártás</a>
+        <a class="mobile-subnav" href="szerszamkeszites.html">Szerszámkészítés</a>
         <a href="geppark.html">Géppark</a>
         <a href="rolunk.html">Rólunk</a>
-        <a href="#ajanlatkeres">Ajánlatkérés</a>
         <a href="#kapcsolat">Kapcsolat</a>
+        <a href="#ajanlatkeres">Ajánlatkérés</a>
       </nav>
     </div>
   </div>
@@ -674,12 +724,68 @@ window.addEventListener('scroll', onScroll, { passive: true });
 
 document.getElementById('year').textContent = new Date().getFullYear();
 
+const menuToggle = document.getElementById('menuToggle');
 document.querySelectorAll('.mobile-nav a').forEach(link => {
   link.addEventListener('click', () => {
-    const toggle = document.getElementById('menuToggle');
-    if (toggle) toggle.checked = false;
+    if (menuToggle) menuToggle.checked = false;
   });
 });
+
+const navDropdown = document.querySelector('.nav-dropdown');
+const dropdownToggle = document.querySelector('.nav-dropdown-toggle');
+if (navDropdown && dropdownToggle) {
+  const closeDropdown = () => {
+    navDropdown.classList.remove('open');
+    dropdownToggle.setAttribute('aria-expanded', 'false');
+  };
+  const openDropdown = () => {
+    navDropdown.classList.add('open');
+    dropdownToggle.setAttribute('aria-expanded', 'true');
+  };
+
+  dropdownToggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    const isOpen = navDropdown.classList.contains('open');
+    if (isOpen) {
+      closeDropdown();
+    } else {
+      openDropdown();
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!navDropdown.contains(e.target)) {
+      closeDropdown();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeDropdown();
+    }
+  });
+}
+
+const revealTargets = document.querySelectorAll(
+  '.stats-grid .stat-card, .services-grid .service-card, .split-grid > .panel, .machine-panel > *,' +
+  '.logo-strip .logo-placeholder, .cta-box, .contact-grid > *, .faq-wrap .faq-item'
+);
+
+revealTargets.forEach((el, index) => {
+  el.classList.add('reveal');
+  el.style.transitionDelay = `${Math.min(index % 4, 3) * 90}ms`;
+});
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.14, rootMargin: '0px 0px -40px 0px' });
+
+revealTargets.forEach(el => observer.observe(el));
 </script>
 </body>
 </html>
