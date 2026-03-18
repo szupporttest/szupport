@@ -5,14 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CNC megmunkálás, alkatrészgyártás és szerszámkészítés | SZUPPORT Kft.</title>
 <meta name="description" content="CNC marás, CNC esztergálás, alkatrészgyártás és szerszámkészítés a SZUPPORT Kft.-től. Több mint 30 év tapasztalat, székesfehérvári telephely, országos kiszolgálás.">
-<meta name="robots" content="index,follow">
-<link rel="canonical" href="https://szupport.hu/">
+
+<meta name="robots" content="noindex,nofollow">
+<link rel="canonical" href="https://szupporttest.github.io/szupport/">
+
 <meta property="og:title" content="CNC megmunkálás és alkatrészgyártás | SZUPPORT Kft.">
 <meta property="og:description" content="Precíz CNC megmunkálás, CNC marás, CNC esztergálás és alkatrészgyártás ipari partnerek számára.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://szupport.hu/">
+<meta property="og:url" content="https://szupporttest.github.io/szupport/">
 <meta property="og:locale" content="hu_HU">
+<meta property="og:site_name" content="SZUPPORT Kft.">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CNC megmunkálás és alkatrészgyártás | SZUPPORT Kft.">
+<meta name="twitter:description" content="Precíz CNC megmunkálás, CNC marás, CNC esztergálás és alkatrészgyártás ipari partnerek számára.">
+
 <meta name="theme-color" content="#08101c">
+
 <style>
 :root{
   --bg:#07101c;
@@ -50,7 +59,8 @@ p{margin:0 0 16px;color:var(--muted)}
 ul{margin:0;padding-left:18px;color:var(--muted)}
 section{padding:96px 0;position:relative}
 .container{max-width:var(--max);margin:0 auto;padding:0 24px}
-
+.skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+.skip-link:focus{position:fixed;left:16px;top:16px;width:auto;height:auto;overflow:visible;z-index:2000;background:#fff;color:#000;padding:10px 14px;border-radius:10px}
 h1,h2,h3{margin:0 0 16px;line-height:1.08;letter-spacing:-.02em}
 h1{font-size:clamp(2.5rem,5vw,5rem)}
 h2{font-size:clamp(2rem,4vw,3.2rem)}
@@ -64,7 +74,6 @@ h3{font-size:1.26rem}
   font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px;
 }
 .eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 14px rgba(30,197,188,.6)}
-
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:10px;
   min-height:50px;padding:0 20px;border-radius:15px;border:1px solid transparent;
@@ -75,7 +84,6 @@ h3{font-size:1.26rem}
 .btn-secondary{background:rgba(255,255,255,.03);border-color:var(--line);color:#e6eefc}
 .btn-secondary:hover{transform:translateY(-2px);background:rgba(255,255,255,.06)}
 .btn-full{width:100%}
-
 #siteHeader{
   position:sticky;top:0;z-index:1000;
   backdrop-filter:blur(18px);
@@ -109,7 +117,6 @@ h3{font-size:1.26rem}
 #siteHeader.scrolled .logo-box{width:48px;height:48px;flex-basis:48px;border-radius:14px;font-size:.64rem}
 .brand-text strong{display:block;font-size:1rem;letter-spacing:.08em;white-space:nowrap;transition:font-size .25s ease}
 #siteHeader.scrolled .brand-text strong{font-size:.95rem}
-
 .desktop-nav{
   display:flex;align-items:center;justify-content:center;gap:16px;
   min-width:0;overflow:hidden;
@@ -119,10 +126,8 @@ h3{font-size:1.26rem}
 }
 .desktop-nav a::after{content:"";position:absolute;left:0;bottom:-10px;width:0;height:2px;background:var(--primary);transition:.25s}
 .desktop-nav a:hover::after{width:100%}
-
 .header-actions{display:flex;align-items:center;gap:10px;justify-self:end;position:relative;z-index:3}
 .menu-checkbox,.menu-toggle,.mobile-overlay,.mobile-nav{display:none}
-
 .hero{padding:88px 0 110px;overflow:hidden}
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
 .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin:30px 0 34px}
@@ -153,13 +158,11 @@ h3{font-size:1.26rem}
 .visual-caption{position:absolute;left:26px;top:26px;max-width:290px;padding:18px;border-radius:20px;background:rgba(8,16,28,.76);border:1px solid var(--line);backdrop-filter:blur(8px)}
 .visual-caption strong{display:block;margin-bottom:6px}
 .visual-caption p{margin:0;color:var(--muted);font-size:.94rem}
-
 .stats{margin-top:-24px;position:relative;z-index:2}
 .stats-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
 .stat-card{padding:24px;border-radius:22px;background:linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.02));border:1px solid var(--line);box-shadow:var(--shadow)}
 .stat-card strong{display:block;font-size:2rem;margin-bottom:4px}
 .stat-card span{color:var(--soft)}
-
 .panel{background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow)}
 .panel-pad{padding:34px}
 .services-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
@@ -168,7 +171,6 @@ h3{font-size:1.26rem}
 .service-card::after{content:"";position:absolute;right:-34px;top:-34px;width:130px;height:130px;border-radius:50%;background:radial-gradient(circle, rgba(79,131,255,.18), transparent 72%)}
 .service-icon{width:58px;height:58px;border-radius:17px;display:grid;place-items:center;margin-bottom:18px;background:rgba(79,131,255,.12);border:1px solid rgba(121,163,255,.18);font-weight:800;font-size:1.25rem}
 .service-link{display:inline-flex;align-items:center;gap:8px;margin-top:8px;font-weight:800;color:#e2ebff}
-
 .split-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
 .list-card,.contact-card,.contact-form,.faq-shell{padding:32px}
 .visual-card,.machine-card{min-height:380px;position:relative;overflow:hidden;border-radius:26px}
@@ -180,7 +182,6 @@ h3{font-size:1.26rem}
 .feature-dot{width:11px;height:11px;border-radius:50%;background:var(--accent);box-shadow:0 0 15px rgba(30,197,188,.42);margin-top:8px;flex:0 0 11px}
 .feature-item strong{display:block;margin-bottom:2px}
 .feature-item span{color:var(--muted);font-size:.95rem}
-
 .machine-panel{display:grid;grid-template-columns:1fr .95fr;gap:24px}
 .machine-side{display:grid;gap:18px}
 .mini-card{padding:22px;border-radius:20px;background:rgba(255,255,255,.03);border:1px solid var(--line)}
@@ -188,11 +189,9 @@ h3{font-size:1.26rem}
 .muted{color:var(--soft)}
 .logo-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:10px}
 .logo-placeholder{min-height:98px;border-radius:20px;border:1px dashed rgba(255,255,255,.14);background:rgba(255,255,255,.025);display:flex;align-items:center;justify-content:center;color:var(--soft);text-align:center;padding:16px}
-
 .cta-box{display:grid;grid-template-columns:1.15fr .85fr;gap:24px;align-items:center;padding:38px;border-radius:30px;background:linear-gradient(135deg, rgba(79,131,255,.16), rgba(30,197,188,.07), rgba(255,255,255,.02));border:1px solid rgba(121,163,255,.18);box-shadow:var(--shadow)}
 .cta-actions{display:flex;flex-wrap:wrap;gap:14px}
 .cta-info{padding:24px;border-radius:22px;background:rgba(8,16,28,.56);border:1px solid rgba(255,255,255,.08)}
-
 .contact-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:24px}
 .contact-list{display:grid;gap:16px;margin-top:18px}
 .contact-item{padding:16px 18px;border-radius:16px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.06)}
@@ -203,7 +202,6 @@ input,textarea{width:100%;padding:14px 16px;border-radius:14px;border:1px solid 
 input:focus,textarea:focus{border-color:rgba(121,163,255,.72);box-shadow:0 0 0 4px rgba(79,131,255,.12)}
 textarea{min-height:146px;resize:vertical}
 .form-note{font-size:.9rem;color:var(--soft);margin-top:12px}
-
 .faq-wrap{display:grid;gap:16px;max-width:900px}
 .faq-item{border:1px solid var(--line);border-radius:22px;overflow:hidden;background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015))}
 .faq-item[open]{border-color:rgba(121,163,255,.26);box-shadow:0 20px 40px rgba(0,0,0,.22)}
@@ -212,28 +210,23 @@ textarea{min-height:146px;resize:vertical}
 .faq-question .icon{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;color:var(--primary2);font-size:1.4rem;line-height:1;transition:.24s ease;flex:0 0 28px}
 .faq-item[open] .faq-question .icon{transform:rotate(45deg)}
 .faq-answer{padding:0 24px 22px}
-
 footer{padding:36px 0 46px;background:rgba(5,10,18,.92);border-top:1px solid rgba(255,255,255,.06)}
 .footer-grid{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
 .footer-grid p{margin:0;color:var(--soft)}
-
 @media (max-width:1320px){
   .desktop-nav{gap:12px}
   .desktop-nav a{font-size:.82rem}
   .header-actions .btn{padding:0 16px}
 }
-
 @media (max-width:1180px){
   .desktop-nav{gap:10px}
   .desktop-nav a{font-size:.78rem}
   .header-actions .btn{padding:0 14px}
 }
-
 @media (max-width:1080px){
   .hero-grid,.machine-panel,.cta-box,.contact-grid,.split-grid{grid-template-columns:1fr}
   .stats-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
-
 @media (max-width:920px){
   :root{--header-h:74px;--header-h-scrolled:66px}
   .container{padding:0 18px}
@@ -261,7 +254,6 @@ footer{padding:36px 0 46px;background:rgba(5,10,18,.92);border-top:1px solid rgb
   .list-card,.contact-card,.contact-form,.faq-shell,.panel-pad{padding:24px}
   .cta-box{padding:28px}
 }
-
 @media (max-width:560px){
   h1{font-size:2.18rem}
   h2{font-size:1.82rem}
@@ -277,11 +269,58 @@ footer{padding:36px 0 46px;background:rgba(5,10,18,.92);border-top:1px solid rgb
   .faq-answer{padding:0 18px 18px}
 }
 </style>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"Organization",
+      "name":"SZUPPORT Kft.",
+      "url":"https://szupporttest.github.io/szupport/",
+      "email":"info@szupport.hu"
+    },
+    {
+      "@type":"WebSite",
+      "name":"SZUPPORT Kft.",
+      "url":"https://szupporttest.github.io/szupport/",
+      "inLanguage":"hu-HU"
+    },
+    {
+      "@type":"FAQPage",
+      "mainEntity":[
+        {
+          "@type":"Question",
+          "name":"Milyen fájlformátumok alapján tudnak gyártani?",
+          "acceptedAnswer":{"@type":"Answer","text":"Műszaki rajz, CAD, STEP fájl vagy fizikai minta alapján is tudunk gyártási egyeztetést kezdeményezni."}
+        },
+        {
+          "@type":"Question",
+          "name":"Mekkora szériát vállalnak?",
+          "acceptedAnswer":{"@type":"Answer","text":"Egyedi daraboktól a kis- és közepes szériás gyártásig rugalmasan tudunk alkalmazkodni a partneri igényekhez."}
+        },
+        {
+          "@type":"Question",
+          "name":"Csak székesfehérvári partnerekkel dolgoznak?",
+          "acceptedAnswer":{"@type":"Answer","text":"Nem. Bár telephelyünk Székesfehérváron található, országos együttműködésre is nyitottak vagyunk."}
+        },
+        {
+          "@type":"Question",
+          "name":"Hogyan érdemes ajánlatot kérni?",
+          "acceptedAnswer":{"@type":"Answer","text":"A leggyorsabb, ha elküldi az alapadatokat: rajz vagy CAD fájl, anyag, darabszám, valamint a kívánt határidő."}
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Ugrás a tartalomra</a>
+
 <header id="siteHeader">
   <div class="container nav-wrap">
-    <a href="/" class="brand" aria-label="SZUPPORT Kft. főoldal">
+    <a href="./" class="brand" aria-label="SZUPPORT Kft. főoldal">
       <div class="logo-box" aria-hidden="true">LOGÓ<br>HELYE</div>
       <div class="brand-text">
         <strong>SZUPPORT Kft.</strong>
@@ -289,12 +328,12 @@ footer{padding:36px 0 46px;background:rgba(5,10,18,.92);border-top:1px solid rgb
     </a>
 
     <nav class="desktop-nav" aria-label="Fő navigáció">
-      <a href="/">Főoldal</a>
-      <a href="/cnc-maras">CNC marás</a>
-      <a href="/cnc-esztergalas">CNC esztergálás</a>
-      <a href="/alkatreszgyartas">Alkatrészgyártás</a>
-      <a href="/szerszamkeszites">Szerszámkészítés</a>
-      <a href="/geppark">Géppark</a>
+      <a href="./">Főoldal</a>
+      <a href="cnc-maras.html">CNC marás</a>
+      <a href="cnc-esztergalas.html">CNC esztergálás</a>
+      <a href="alkatreszgyartas.html">Alkatrészgyártás</a>
+      <a href="szerszamkeszites.html">Szerszámkészítés</a>
+      <a href="geppark.html">Géppark</a>
       <a href="#ajanlatkeres">Ajánlatkérés</a>
       <a href="#kapcsolat">Kapcsolat</a>
     </nav>
@@ -308,12 +347,12 @@ footer{padding:36px 0 46px;background:rgba(5,10,18,.92);border-top:1px solid rgb
       <label class="mobile-overlay" for="menuToggle" aria-hidden="true"></label>
 
       <nav class="mobile-nav" aria-label="Mobil navigáció">
-        <a href="/">Főoldal</a>
-        <a href="/cnc-maras">CNC marás</a>
-        <a href="/cnc-esztergalas">CNC esztergálás</a>
-        <a href="/alkatreszgyartas">Alkatrészgyártás</a>
-        <a href="/szerszamkeszites">Szerszámkészítés</a>
-        <a href="/geppark">Géppark</a>
+        <a href="./">Főoldal</a>
+        <a href="cnc-maras.html">CNC marás</a>
+        <a href="cnc-esztergalas.html">CNC esztergálás</a>
+        <a href="alkatreszgyartas.html">Alkatrészgyártás</a>
+        <a href="szerszamkeszites.html">Szerszámkészítés</a>
+        <a href="geppark.html">Géppark</a>
         <a href="#ajanlatkeres">Ajánlatkérés</a>
         <a href="#kapcsolat">Kapcsolat</a>
       </nav>
@@ -321,7 +360,7 @@ footer{padding:36px 0 46px;background:rgba(5,10,18,.92);border-top:1px solid rgb
   </div>
 </header>
 
-<main>
+<main id="main-content">
   <section class="hero">
     <div class="container hero-grid">
       <div>
@@ -384,25 +423,25 @@ footer{padding:36px 0 46px;background:rgba(5,10,18,.92);border-top:1px solid rgb
           <div class="service-icon">M</div>
           <h3>CNC marás</h3>
           <p>Nagy pontosságú megmunkálás modern CNC marógépekkel egyedi alkatrészekhez, prototípusokhoz és sorozatgyártási feladatokhoz.</p>
-          <a class="service-link" href="/cnc-maras">CNC marás részletei <span>→</span></a>
+          <a class="service-link" href="cnc-maras.html">CNC marás részletei <span>→</span></a>
         </article>
         <article class="service-card">
           <div class="service-icon">E</div>
           <h3>CNC esztergálás</h3>
           <p>Precíz forgácsolási megoldások tengelyekhez, forgó alkatrészekhez és egyéb fém komponensekhez ipari felhasználásra.</p>
-          <a class="service-link" href="/cnc-esztergalas">CNC esztergálás részletei <span>→</span></a>
+          <a class="service-link" href="cnc-esztergalas.html">CNC esztergálás részletei <span>→</span></a>
         </article>
         <article class="service-card">
           <div class="service-icon">A</div>
           <h3>Alkatrészgyártás</h3>
           <p>Egyedi, kis- és közepes szériás alkatrészgyártás műszaki rajz, CAD fájl vagy minta alapján, tervezhető gyártási háttérrel.</p>
-          <a class="service-link" href="/alkatreszgyartas">Alkatrészgyártás részletei <span>→</span></a>
+          <a class="service-link" href="alkatreszgyartas.html">Alkatrészgyártás részletei <span>→</span></a>
         </article>
         <article class="service-card">
           <div class="service-icon">Sz</div>
           <h3>Szerszámkészítés</h3>
           <p>Egyedi ipari szerszámok, készülékek és gyártást segítő megoldások kialakítása tapasztalt szakmai háttérrel.</p>
-          <a class="service-link" href="/szerszamkeszites">Szerszámkészítés részletei <span>→</span></a>
+          <a class="service-link" href="szerszamkeszites.html">Szerszámkészítés részletei <span>→</span></a>
         </article>
       </div>
     </div>
@@ -437,7 +476,7 @@ footer{padding:36px 0 46px;background:rgba(5,10,18,.92);border-top:1px solid rgb
           <div class="eyebrow">Technológiai háttér</div>
           <h2>Modern CNC géppark a pontos gyártásért</h2>
           <p>Gépparkunk korszerű CNC megmunkáló központokból és esztergagépekből áll, amelyek lehetővé teszik a hatékony és nagy pontosságú fémmegmunkálást különböző ipari feladatokhoz.</p>
-          <a class="btn btn-secondary" href="/geppark">Teljes géppark megtekintése</a>
+          <a class="btn btn-secondary" href="geppark.html">Teljes géppark megtekintése</a>
         </div>
         <div class="mini-card">
           <strong>Megbízható technológiai háttér</strong>
@@ -525,7 +564,7 @@ footer{padding:36px 0 46px;background:rgba(5,10,18,.92);border-top:1px solid rgb
             <div class="contact-item"><strong>Nyitvatartás</strong><span>H–P: 08:00–16:00</span></div>
           </div>
         </div>
-        <form class="panel contact-form">
+        <form class="panel contact-form" onsubmit="event.preventDefault(); alert('Az űrlap bekötése még folyamatban van. Kérjük, addig emailben vagy telefonon keressen minket.');">
           <div class="form-grid">
             <div>
               <label for="name">Név</label>
@@ -590,22 +629,31 @@ footer{padding:36px 0 46px;background:rgba(5,10,18,.92);border-top:1px solid rgb
 
 <footer>
   <div class="container footer-grid">
-    <p>© SZUPPORT Kft. | CNC megmunkálás, alkatrészgyártás és szerszámkészítés</p>
+    <p>© <span id="year"></span> SZUPPORT Kft. | CNC megmunkálás, alkatrészgyártás és szerszámkészítés</p>
     <p>Székesfehérvár • országos együttműködés</p>
   </div>
 </footer>
 
 <script>
-  const siteHeader = document.getElementById('siteHeader');
-  const onScroll = () => {
-    if (window.scrollY > 24) {
-      siteHeader.classList.add('scrolled');
-    } else {
-      siteHeader.classList.remove('scrolled');
-    }
-  };
-  onScroll();
-  window.addEventListener('scroll', onScroll, { passive: true });
+const siteHeader = document.getElementById('siteHeader');
+const onScroll = () => {
+  if (window.scrollY > 24) {
+    siteHeader.classList.add('scrolled');
+  } else {
+    siteHeader.classList.remove('scrolled');
+  }
+};
+onScroll();
+window.addEventListener('scroll', onScroll, { passive: true });
+
+document.getElementById('year').textContent = new Date().getFullYear();
+
+document.querySelectorAll('.mobile-nav a').forEach(link => {
+  link.addEventListener('click', () => {
+    const toggle = document.getElementById('menuToggle');
+    if (toggle) toggle.checked = false;
+  });
+});
 </script>
 </body>
 </html>
