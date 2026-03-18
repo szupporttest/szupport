@@ -78,7 +78,7 @@ h3{font-size:1.24rem}
 #siteHeader.scrolled .logo-box{width:48px;height:48px;flex-basis:48px;border-radius:14px;font-size:.64rem}
 .brand-text strong{display:block;font-size:1rem;letter-spacing:.08em;white-space:nowrap;transition:font-size .25s ease}
 #siteHeader.scrolled .brand-text strong{font-size:.95rem}
-.desktop-nav{display:flex;align-items:center;justify-content:center;gap:16px;min-width:0;overflow:hidden}
+.desktop-nav{display:flex;align-items:center;justify-content:center;gap:16px;min-width:0;overflow:visible}
 .desktop-nav a{position:relative;font-weight:700;color:#dce6f7;font-size:.88rem;white-space:nowrap}
 .desktop-nav a::after{content:"";position:absolute;left:0;bottom:-10px;width:0;height:2px;background:var(--primary);transition:.25s}
 .desktop-nav a:hover::after,.desktop-nav a.active::after{width:100%}
@@ -152,6 +152,37 @@ textarea{min-height:146px;resize:vertical}
 footer{padding:36px 0 46px;background:rgba(5,10,18,.92);border-top:1px solid rgba(255,255,255,.06)}
 .footer-grid{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
 .footer-grid p{margin:0;color:var(--soft)}
+
+.nav-dropdown{position:relative;display:flex;align-items:center}
+.nav-dropdown-toggle{
+background:none;border:none;color:#dce6f7;font-weight:700;cursor:pointer;position:relative;
+display:inline-flex;align-items:center;gap:8px;font:inherit
+}
+.nav-dropdown-toggle::after{
+content:"▾";
+font-size:.72rem;
+color:var(--primary2);
+line-height:1;
+transform:translateY(1px);
+}
+.nav-dropdown-menu{
+position:absolute;
+top:calc(100% + 10px);
+left:0;
+background:#0c1728;
+border:1px solid rgba(255,255,255,.08);
+border-radius:14px;
+padding:10px;
+display:none;
+flex-direction:column;
+min-width:200px;
+}
+.nav-dropdown:hover .nav-dropdown-menu{display:flex}
+.nav-dropdown-menu a{padding:10px 14px;border-radius:10px}
+.nav-dropdown-menu a:hover{background:rgba(255,255,255,.05)}
+.mobile-group-title{padding:12px 0;color:#79a3ff;font-weight:700}
+.mobile-subnav{padding-left:18px !important}
+
 @media (max-width:1320px){.desktop-nav{gap:12px}.desktop-nav a{font-size:.82rem}.header-actions .btn{padding:0 16px}}
 @media (max-width:1180px){.desktop-nav{gap:10px}.desktop-nav a{font-size:.78rem}.header-actions .btn{padding:0 14px}}
 @media (max-width:1080px){.hero-grid,.machine-panel,.cta-box,.contact-grid,.split-grid{grid-template-columns:1fr}.stats-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -227,32 +258,45 @@ footer{padding:36px 0 46px;background:rgba(5,10,18,.92);border-top:1px solid rgb
       <div class="logo-box" aria-hidden="true">LOGÓ<br>HELYE</div>
       <div class="brand-text"><strong>SZUPPORT Kft.</strong></div>
     </a>
-    <nav class="desktop-nav" aria-label="Fő navigáció">
-      <a href="index.html">Főoldal</a>
-      <a href="cnc-maras.html">CNC marás</a>
-      <a href="cnc-esztergalas.html" class="active">CNC esztergálás</a>
-      <a href="alkatreszgyartas.html">Alkatrészgyártás</a>
-      <a href="szerszamkeszites.html">Szerszámkészítés</a>
-      <a href="geppark.html">Géppark</a>
-      <a href="#ajanlatkeres">Ajánlatkérés</a>
-      <a href="#kapcsolat">Kapcsolat</a>
-    </nav>
+    
+<nav class="desktop-nav" aria-label="Fő navigáció">
+<a href="index.html">Főoldal</a>
+
+<div class="nav-dropdown">
+<button class="nav-dropdown-toggle" type="button">Szolgáltatások</button>
+<div class="nav-dropdown-menu">
+<a href="cnc-maras.html">CNC marás</a>
+<a href="cnc-esztergalas.html">CNC esztergálás</a>
+<a href="alkatreszgyartas.html">Alkatrészgyártás</a>
+<a href="szerszamkeszites.html">Szerszámkészítés</a>
+</div>
+</div>
+
+<a href="geppark.html">Géppark</a>
+<a href="rolunk.html">Rólunk</a>
+<a href="#kapcsolat">Kapcsolat</a>
+</nav>
+
     <div class="header-actions">
       <a class="btn btn-secondary desktop-only" href="tel:+36...">Telefon</a>
       <a class="btn btn-primary desktop-only" href="#ajanlatkeres">Ajánlatkérés</a>
       <input class="menu-checkbox" id="menuToggle" type="checkbox" aria-hidden="true">
       <label class="menu-toggle" for="menuToggle" aria-label="Menü megnyitása"><span></span></label>
       <label class="mobile-overlay" for="menuToggle" aria-hidden="true"></label>
-      <nav class="mobile-nav" aria-label="Mobil navigáció">
-        <a href="index.html">Főoldal</a>
-        <a href="cnc-maras.html">CNC marás</a>
-        <a href="cnc-esztergalas.html">CNC esztergálás</a>
-        <a href="alkatreszgyartas.html">Alkatrészgyártás</a>
-        <a href="szerszamkeszites.html">Szerszámkészítés</a>
-        <a href="geppark.html">Géppark</a>
-        <a href="#ajanlatkeres">Ajánlatkérés</a>
-        <a href="#kapcsolat">Kapcsolat</a>
-      </nav>
+      
+<nav class="mobile-nav" aria-label="Mobil navigáció">
+<a href="index.html">Főoldal</a>
+<div class="mobile-group-title">Szolgáltatások</div>
+<a class="mobile-subnav" href="cnc-maras.html">CNC marás</a>
+<a class="mobile-subnav" href="cnc-esztergalas.html">CNC esztergálás</a>
+<a class="mobile-subnav" href="alkatreszgyartas.html">Alkatrészgyártás</a>
+<a class="mobile-subnav" href="szerszamkeszites.html">Szerszámkészítés</a>
+<a href="geppark.html">Géppark</a>
+<a href="rolunk.html">Rólunk</a>
+<a href="#kapcsolat">Kapcsolat</a>
+<a href="#ajanlatkeres">Ajánlatkérés</a>
+</nav>
+
     </div>
   </div>
 </header>
@@ -262,7 +306,7 @@ footer{padding:36px 0 46px;background:rgba(5,10,18,.92);border-top:1px solid rgb
       <div>
         <div class="breadcrumbs"><a href="index.html">Főoldal</a><span>•</span><span>CNC esztergálás</span></div>
         <div class="eyebrow">CNC esztergálás</div>
-        <h1>Precíz CNC esztergálás tengelyekhez és forgó alkatrészekhez</h1>
+        <h1>Precíz CNC esztergálás tengelyekhez, forgó alkatrészekhez és ipari gépalkatrészekhez</h1>
         <p class="lead">A SZUPPORT Kft. CNC esztergálási szolgáltatása megbízható megoldást kínál tengelyek, forgásszimmetrikus alkatrészek, egyedi darabok és kis- vagy közepes szériás gyártási feladatok esetén. Székesfehérvári telephelyről országos partnerek számára dolgozunk.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#ajanlatkeres">Ajánlatkérés</a>
@@ -429,7 +473,49 @@ footer{padding:36px 0 46px;background:rgba(5,10,18,.92);border-top:1px solid rgb
   </section>
   <section>
     <div class="container">
-      <div class="section-head">
+      
+<section>
+<div class="container split-grid">
+
+<div class="panel list-card">
+<div class="eyebrow">Kapcsolódó szolgáltatások</div>
+<h2>További gyártási megoldások</h2>
+<div class="feature-list">
+
+<div class="feature-item"><div class="feature-dot"></div><div>
+<strong><a href="cnc-maras.html">CNC marás</a></strong>
+<span>Összetettebb geometriájú alkatrészek megmunkálásához.</span>
+</div></div>
+
+<div class="feature-item"><div class="feature-dot"></div><div>
+<strong><a href="alkatreszgyartas.html">Alkatrészgyártás</a></strong>
+<span>Egyedi darabok és kis‑ vagy közepes szériák gyártása.</span>
+</div></div>
+
+<div class="feature-item"><div class="feature-dot"></div><div>
+<strong><a href="szerszamkeszites.html">Szerszámkészítés</a></strong>
+<span>Egyedi ipari szerszámok és gyártási megoldások.</span>
+</div></div>
+
+<div class="feature-item"><div class="feature-dot"></div><div>
+<strong><a href="geppark.html">Géppark</a></strong>
+<span>Ismerje meg CNC gépparkunkat és technológiai hátterünket.</span>
+</div></div>
+
+</div>
+</div>
+
+<div class="panel list-card">
+<div class="eyebrow">Technológia</div>
+<h2>Miért előnyös a CNC esztergálás?</h2>
+<p>A CNC esztergálás nagy pontosságú forgácsolási technológia, amely különösen hatékony tengelyek, csapok, perselyek és forgásszimmetrikus ipari alkatrészek gyártásánál.</p>
+<p>A modern CNC vezérlés lehetővé teszi az ismételhető gyártási minőséget, a stabil sorozatgyártást és a pontos mérettartást.</p>
+</div>
+
+</div>
+</section>
+
+<div class="section-head">
         <div class="eyebrow">GYIK</div>
         <h2>Gyakran ismételt kérdések a CNC esztergálásról</h2>
         <p>A leggyakoribb kérdések röviden és áttekinthetően.</p>
