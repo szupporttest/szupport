@@ -182,6 +182,7 @@ h3{font-size:1.26rem}
 .service-card:hover{transform:translateY(-6px);border-color:var(--line-strong);box-shadow:0 26px 52px rgba(0,0,0,.28)}
 .service-card::after{content:"";position:absolute;right:-34px;top:-34px;width:130px;height:130px;border-radius:50%;background:radial-gradient(circle, rgba(79,131,255,.18), transparent 72%)}
 .service-icon{width:58px;height:58px;border-radius:17px;display:grid;place-items:center;margin-bottom:18px;background:rgba(79,131,255,.12);border:1px solid rgba(121,163,255,.18);font-weight:800;font-size:1.25rem}
+.service-icon svg{width:22px;height:22px;display:block;}
 .service-link{display:inline-flex;align-items:center;gap:8px;margin-top:8px;font-weight:800;color:#e2ebff}
 .split-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
 .list-card,.contact-card,.contact-form,.faq-shell{padding:32px}
@@ -499,19 +500,36 @@ footer{padding:36px 0 46px;background:rgba(5,10,18,.92);border-top:1px solid rgb
           <a class="service-link" href="cnc-maras.html">CNC marás részletei <span>→</span></a>
         </article>
         <article class="service-card">
-          <div class="service-icon">E</div>
+          <div class="service-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M4 9h5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+              <path d="M15 9h5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+              <rect x="9" y="7" width="6" height="10" rx="2" stroke="currentColor" stroke-width="1.7"/>
+              <path d="M6 12h2M16 12h2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+            </svg>
+          </div>
           <h3>CNC esztergálás</h3>
           <p>Precíz forgácsolási megoldások tengelyekhez, forgó alkatrészekhez és egyéb fém komponensekhez ipari felhasználásra.</p>
           <a class="service-link" href="cnc-esztergalas.html">CNC esztergálás részletei <span>→</span></a>
         </article>
         <article class="service-card">
-          <div class="service-icon">A</div>
+          <div class="service-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M8 4h8l4 4v8l-4 4H8l-4-4V8l4-4Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+              <circle cx="12" cy="12" r="2.5" stroke="currentColor" stroke-width="1.7"/>
+            </svg>
+          </div>
           <h3>Alkatrészgyártás</h3>
           <p>Egyedi, kis- és közepes szériás alkatrészgyártás műszaki rajz, CAD fájl vagy minta alapján, tervezhető gyártási háttérrel.</p>
           <a class="service-link" href="alkatreszgyartas.html">Alkatrészgyártás részletei <span>→</span></a>
         </article>
         <article class="service-card">
-          <div class="service-icon">Sz</div>
+          <div class="service-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M14.5 5.5a3 3 0 0 0 3.8 3.8l-7.6 7.6a2 2 0 1 1-2.8-2.8l7.6-7.6Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+              <path d="M15 4l5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+            </svg>
+          </div>
           <h3>Szerszámkészítés</h3>
           <p>Egyedi ipari szerszámok, készülékek és gyártást segítő megoldások kialakítása tapasztalt szakmai háttérrel.</p>
           <a class="service-link" href="szerszamkeszites.html">Szerszámkészítés részletei <span>→</span></a>
