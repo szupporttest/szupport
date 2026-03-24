@@ -17,6 +17,12 @@
 <meta name="twitter:title" content="Rólunk | SZUPPORT Kft.">
 <meta name="twitter:description" content="Több évtizedes szakmai tapasztalat a szerszámkészítés, CNC megmunkálás és alkatrészgyártás területén.">
 <meta name="theme-color" content="#08101c">
+<!-- FAVICON -->
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="favicon.ico">
+<link rel="icon" sizes="32x32" href="favicon.ico">
+<link rel="icon" sizes="16x16" href="favicon.ico">
 <style>
 :root{
   --bg:#07101c;
@@ -154,6 +160,11 @@ h3{font-size:1.24rem}
 .stat-card span{color:var(--soft)}
 .panel{background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow)}
 .panel-pad{padding:34px}
+.values-list{display:grid;gap:18px;margin-top:30px}
+.value-row{display:flex;gap:16px;align-items:flex-start;padding:18px 20px;border-radius:20px;background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));border:1px solid rgba(255,255,255,.08);transition:.2s}
+.value-row:hover{border-color:rgba(121,163,255,.3);box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.value-row strong{display:block;margin-bottom:6px;font-size:1.1rem}
+.dot{width:10px;height:10px;background:#2ee6c9;border-radius:50%;margin-top:6px;flex-shrink:0}
 .services-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
 .service-card{position:relative;overflow:hidden;min-height:270px;padding:28px;border-radius:24px;background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));border:1px solid var(--line);transition:.28s ease}
 .service-card:hover{transform:translateY(-6px);border-color:var(--line-strong);box-shadow:0 26px 52px rgba(0,0,0,.28)}
@@ -287,12 +298,13 @@ footer{padding:36px 0 46px;background:rgba(5,10,18,.92);border-top:1px solid rgb
       </div>
       <a href="geppark.html">Géppark</a>
       <a href="rolunk.html">Rólunk</a>
-      <a href="#kapcsolat">Kapcsolat</a>
+      <a href="gyik.html">GYIK</a>
+      <a href="kapcsolat.html">Kapcsolat</a>
     </nav>
 
     <div class="header-actions">
       <a class="btn btn-secondary desktop-only" href="tel:+36...">Telefon</a>
-      <a class="btn btn-primary desktop-only" href="#ajanlatkeres">Ajánlatkérés</a>
+      <a class="btn btn-primary desktop-only" href="kapcsolat.html#ajanlatkeres">Ajánlatkérés</a>
 
       <input class="menu-checkbox" id="menuToggle" type="checkbox" aria-hidden="true">
       <label class="menu-toggle" for="menuToggle" aria-label="Menü megnyitása"><span></span></label>
@@ -307,8 +319,9 @@ footer{padding:36px 0 46px;background:rgba(5,10,18,.92);border-top:1px solid rgb
         <a class="mobile-subnav" href="szerszamkeszites.html">Szerszámkészítés</a>
         <a href="geppark.html">Géppark</a>
         <a href="rolunk.html">Rólunk</a>
-        <a href="#kapcsolat">Kapcsolat</a>
-        <a href="#ajanlatkeres">Ajánlatkérés</a>
+        <a href="gyik.html">GYIK</a>
+      <a href="kapcsolat.html">Kapcsolat</a>
+        <a href="kapcsolat.html#ajanlatkeres">Ajánlatkérés</a>
       </nav>
     </div>
   </div>
@@ -322,7 +335,7 @@ footer{padding:36px 0 46px;background:rgba(5,10,18,.92);border-top:1px solid rgb
         <h1>Több évtizedes szakmai háttér CNC megmunkálásban és szerszámkészítésben</h1>
         <p class="lead">A SZUPPORT Kft. 1990-ben alakult azzal a szemlélettel, hogy a szakmai tudásra, a folyamatos megújulásra és a műszaki problémák kreatív megoldására építve szolgálja ki ipari partnereit. Munkánk alapja a precizitás, a megbízhatóság és a hosszú távú együttműködés.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="index.html#kapcsolat">Kapcsolatfelvétel</a>
+          <a class="btn btn-primary" href="kapcsolat.html#ajanlatkeres">Kapcsolatfelvétel</a>
           <a class="btn btn-secondary" href="geppark.html">Géppark megtekintése</a>
         </div>
         <div class="hero-points">
@@ -365,18 +378,20 @@ footer{padding:36px 0 46px;background:rgba(5,10,18,.92);border-top:1px solid rgb
 
   <section>
     <div class="container">
-      <div class="section-head">
+      <div class="panel panel-pad">
+<div class="section-head">
         <div class="eyebrow">Alapértékek</div>
         <h2>Ami a működésünket meghatározza</h2>
         <p>A szakmai tapasztalat mellett a korszerű technológia, a minőség és a partnerközpontú gondolkodás együtt adja azt a hátteret, amelyre partnereink számíthatnak.</p>
       </div>
-      <div class="values">
-        <div class="value"><h3>Szakértelem</h3><p>Több évtizedes szerszámkészítő és forgácsolási tapasztalatra építünk.</p></div>
-        <div class="value"><h3>Precizitás</h3><p>Pontos gyártási folyamatokra és megbízható minőségre törekszünk.</p></div>
-        <div class="value"><h3>Rugalmasság</h3><p>Egyedi műszaki feladatokhoz és speciális igényekhez is alkalmazkodunk.</p></div>
-        <div class="value"><h3>Hosszú távú szemlélet</h3><p>Stabil partnerkapcsolatokban és tartós együttműködésekben gondolkodunk.</p></div>
+      <div class="values-list">
+        <div class="value-row"><span class="dot"></span><div><strong>Szakértelem</strong><p>Több évtizedes szerszámkészítő és forgácsolási tapasztalatra építünk.</p></div></div>
+        <div class="value-row"><span class="dot"></span><div><strong>Precizitás</strong><p>Pontos gyártási folyamatokra és megbízható minőségre törekszünk.</p></div></div>
+        <div class="value-row"><span class="dot"></span><div><strong>Rugalmasság</strong><p>Egyedi műszaki feladatokhoz és speciális igényekhez is alkalmazkodunk.</p></div></div>
+        <div class="value-row"><span class="dot"></span><div><strong>Hosszú távú szemlélet</strong><p>Stabil partnerkapcsolatokban és tartós együttműködésekben gondolkodunk.</p></div></div>
       </div>
     </div>
+</div>
   </section>
 
   <section>
@@ -435,7 +450,7 @@ footer{padding:36px 0 46px;background:rgba(5,10,18,.92);border-top:1px solid rgb
           <h2>Dolgozzunk együtt egyedi gyártási feladatokon</h2>
           <p>Ha olyan partnert keres, aki több évtizedes tapasztalattal, korszerű technológiai háttérrel és minőségközpontú szemlélettel támogatja a gyártási feladatait, vegye fel velünk a kapcsolatot.</p>
           <div class="cta-actions">
-            <a class="btn btn-primary" href="index.html#kapcsolat">Kapcsolatfelvétel</a>
+            <a class="btn btn-primary" href="kapcsolat.html#ajanlatkeres">Kapcsolatfelvétel</a>
             <a class="btn btn-secondary" href="mailto:info@szupport.hu">Email küldése</a>
             <a class="btn btn-secondary" href="tel:+36...">Telefonhívás</a>
           </div>
