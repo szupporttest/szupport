@@ -214,6 +214,31 @@ label{display:block;font-size:.93rem;color:#d6e1f6;margin-bottom:8px;font-weight
 input,textarea{width:100%;padding:14px 16px;border-radius:14px;border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.03);color:#fff;outline:none;font:inherit}
 input:focus,textarea:focus{border-color:rgba(121,163,255,.72);box-shadow:0 0 0 4px rgba(79,131,255,.12)}
 textarea{min-height:146px;resize:vertical}
+input[type="file"]{
+  width:100%;
+  padding:14px 16px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.03);
+  color:var(--muted);
+  outline:none;
+  font:inherit;
+}
+input[type="file"]:focus{
+  border-color:rgba(121,163,255,.72);
+  box-shadow:0 0 0 4px rgba(79,131,255,.12);
+}
+input[type="file"]::file-selector-button{
+  margin-right:14px;
+  padding:10px 14px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.06);
+  color:#fff;
+  cursor:pointer;
+  font:inherit;
+  font-weight:700;
+}
 .form-note{font-size:.9rem;color:var(--soft);margin-top:12px}
 .faq-wrap{display:grid;gap:16px;max-width:900px}
 .faq-item{border:1px solid var(--line);border-radius:22px;overflow:hidden;background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015))}
@@ -457,8 +482,12 @@ footer{padding:36px 0 46px;background:rgba(5,10,18,.92);border-top:1px solid rgb
             <label for="message">Üzenet / gyártási igény</label>
             <textarea id="message" name="message" placeholder="Írja le röviden, milyen alkatrészre vagy gyártási feladatra szeretne ajánlatot kérni."></textarea>
           </div>
+          <div style="margin-top:14px">
+            <label for="files">Rajz / STEP / CAD / PDF feltöltése</label>
+            <input id="files" name="files" type="file" accept=".pdf,.step,.stp,.dwg,.dxf,.zip,.rar,.7z,.jpg,.jpeg,.png" multiple>
+          </div>
           <div style="margin-top:16px"><button class="btn btn-primary btn-full" type="submit">Ajánlatkérés elküldése</button></div>
-          <p class="form-note">Később fájlfeltöltés is beépíthető rajz, STEP vagy CAD állományokhoz.</p>
+          <p class="form-note">Több fájl is csatolható. Javasolt formátumok: PDF, STEP/STP, DWG, DXF, ZIP.</p>
         </form>
       </div>
     </div>
