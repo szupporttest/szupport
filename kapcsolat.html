@@ -239,6 +239,21 @@ input[type="file"]::file-selector-button{
   font:inherit;
   font-weight:700;
 }
+.file-help{margin:0 0 12px;color:var(--soft);font-size:.9rem}
+.file-list{
+  display:grid;
+  gap:8px;
+  margin-top:12px;
+}
+.file-item{
+  padding:10px 12px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.025);
+  color:#dce6f7;
+  font-size:.92rem;
+  line-height:1.4;
+}
 .form-note{font-size:.9rem;color:var(--soft);margin-top:12px}
 .faq-wrap{display:grid;gap:16px;max-width:900px}
 .faq-item{border:1px solid var(--line);border-radius:22px;overflow:hidden;background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015))}
@@ -485,9 +500,10 @@ footer{padding:36px 0 46px;background:rgba(5,10,18,.92);border-top:1px solid rgb
           <div style="margin-top:14px">
             <label for="files">Rajz / STEP / CAD / PDF feltöltése</label>
             <input id="files" name="files" type="file" accept=".pdf,.step,.stp,.dwg,.dxf,.zip,.jpg,.jpeg,.png" multiple>
+            <div id="fileList" class="file-list" aria-live="polite"></div>
           </div>
+          <p class="file-help">Több fájl is csatolható. Javasolt formátumok: PDF, STEP/STP, DWG, DXF, ZIP, JPG, PNG.</p>
           <div style="margin-top:16px"><button class="btn btn-primary btn-full" type="submit">Ajánlatkérés elküldése</button></div>
-          <p class="form-note">Több fájl is csatolható. Javasolt formátumok: PDF, STEP/STP, DWG, DXF, ZIP.</p>
         </form>
       </div>
     </div>
@@ -597,6 +613,50 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.14, rootMargin: '0px 0px -40px 0px' });
 
 revealTargets.forEach(el => observer.observe(el));
+
+const filesInput = document.getElementById('files');
+const fileList = document.getElementById('fileList');
+
+if (filesInput && fileList) {
+  let storedFiles = [];
+
+  const syncInputFiles = () => {
+    try {
+      const dt = new DataTransfer();
+      storedFiles.forEach(file => dt.items.add(file));
+      filesInput.files = dt.files;
+    } catch (e) {
+      // Ha a böngésző nem engedi, legalább a lista megjelenik
+    }
+  };
+
+  const renderFiles = () => {
+    fileList.innerHTML = '';
+    if (!storedFiles.length) return;
+
+    storedFiles.forEach((file, index) => {
+      const item = document.createElement('div');
+      item.className = 'file-item';
+      item.textContent = `${index + 1}. ${file.name}`;
+      fileList.appendChild(item);
+    });
+  };
+
+  filesInput.addEventListener('change', () => {
+    const newlySelected = Array.from(filesInput.files || []);
+    if (!newlySelected.length) return;
+
+    newlySelected.forEach(file => {
+      const exists = storedFiles.some(
+        existing => existing.name === file.name && existing.size === file.size && existing.lastModified === file.lastModified
+      );
+      if (!exists) storedFiles.push(file);
+    });
+
+    syncInputFiles();
+    renderFiles();
+  });
+}
 </script>
 </body>
 </html>
