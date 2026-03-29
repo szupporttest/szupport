@@ -199,8 +199,32 @@ h3{font-size:1.26rem}
 .machine-side{display:grid;gap:18px}
 .mini-card{padding:22px;border-radius:20px;background:rgba(255,255,255,.03);border:1px solid var(--line)}
 .mini-card strong{display:block;margin-bottom:6px}
-.muted{color:var(--soft)}
-.logo-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:10px}
+
+.logo-slider{position:relative;overflow:hidden;margin-top:10px}
+.logo-track{
+  display:flex;
+  gap:18px;
+  width:max-content;
+  animation:logoScroll 34s linear infinite;
+}
+.logo-slider:hover .logo-track{animation-play-state:paused}
+.logo-placeholder{
+  min-width:345px;
+  min-height:115px;
+  border-radius:20px;
+  background:rgba(255,255,255,.025);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:16px;
+  transition:transform .25s ease, background .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.logo-placeholder:hover{
+  transform:translateY(-4px);
+  background:rgba(255,255,255,.045);
+  box-shadow:0 16px 34px rgba(0,0,0,.24);
+}
 .logo-placeholder img{
   max-width:70%;
   max-height:60px;
@@ -208,8 +232,18 @@ h3{font-size:1.26rem}
   height:auto;
   object-fit:contain;
   display:block;
+  filter:grayscale(100%) opacity(.82);
+  transition:filter .28s ease, transform .28s ease;
 }
-.logo-placeholder{min-height:98px;border-radius:20px;border:1px dashed rgba(255,255,255,.14);background:rgba(255,255,255,.025);display:flex;align-items:center;justify-content:center;color:var(--soft);text-align:center;padding:16px}
+.logo-placeholder:hover img{
+  filter:grayscale(0%) opacity(1);
+  transform:scale(1.03);
+}
+@keyframes logoScroll{
+  from{transform:translateX(0)}
+  to{transform:translateX(calc(-50% - 9px))}
+}
+.muted{color:var(--soft)}
 .cta-box{display:grid;grid-template-columns:1.15fr .85fr;gap:24px;align-items:center;padding:38px;border-radius:30px;background:linear-gradient(135deg, rgba(79,131,255,.16), rgba(30,197,188,.07), rgba(255,255,255,.02));border:1px solid rgba(121,163,255,.18);box-shadow:var(--shadow)}
 .cta-actions{display:flex;flex-wrap:wrap;gap:14px}
 .cta-info{padding:24px;border-radius:22px;background:rgba(8,16,28,.56);border:1px solid rgba(255,255,255,.08)}
@@ -314,11 +348,13 @@ footer{padding:36px 0 46px;background:rgba(5,10,18,.92);border-top:1px solid rgb
   .mobile-nav a{width:100%;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06);font-weight:700;color:#dce6f7}
   .mobile-nav a:last-child{border-bottom:0}
   .hero{padding:60px 0 88px}
-  .hero-points,.stats-grid,.services-grid,.form-grid,.logo-strip{grid-template-columns:1fr}
+  .hero-points,.stats-grid,.services-grid,.form-grid{grid-template-columns:1fr}
   .hero-visual{min-height:420px}
   section{padding:78px 0}
   .list-card,.contact-card,.contact-form,.faq-shell,.panel-pad{padding:24px}
   .cta-box{padding:28px}
+
+  .logo-placeholder{min-width:280px;min-height:100px}
 }
 @media (max-width:560px){
   h1{font-size:2.18rem}
@@ -328,10 +364,9 @@ footer{padding:36px 0 46px;background:rgba(5,10,18,.92);border-top:1px solid rgb
   .brand{gap:10px}
   .brand-text strong{font-size:.88rem;letter-spacing:.04em}
   .hero-actions .btn,.cta-actions .btn{width:100%}
-  .hero-visual{min-height:540px}
-  .visual-overlay{left:18px;right:18px;bottom:18px;grid-template-columns:1fr;gap:14px}
+  .hero-visual{min-height:360px}
+  .visual-overlay{left:18px;right:18px;bottom:18px;grid-template-columns:1fr}
   .visual-caption{left:18px;right:18px;max-width:none;top:18px}
-  .hero-card{padding:16px}
   .faq-question{padding:18px}
   .faq-answer{padding:0 18px 18px}
 }
@@ -577,6 +612,10 @@ footer{padding:36px 0 46px;background:rgba(5,10,18,.92);border-top:1px solid rgb
           <p>Gépparkunk korszerű CNC megmunkáló központokból és esztergagépekből áll, amelyek lehetővé teszik a hatékony és nagy pontosságú fémmegmunkálást különböző ipari feladatokhoz.</p>
           <a class="btn btn-secondary" href="geppark.html">Teljes géppark megtekintése</a>
         </div>
+        <div class="mini-card">
+          <strong>Megbízható technológiai háttér</strong>
+          <p class="muted">A részletes gépparkoldal tovább erősíti a szakmai hitelességet és a bizalmat.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -630,16 +669,27 @@ footer{padding:36px 0 46px;background:rgba(5,10,18,.92);border-top:1px solid rgb
         <h2>Referenciák és partnermegjelenések</h2>
         <p>Itt később megjelenhetnek a főbb megrendelők logói vagy névvel feltüntetett partnerblokkok.</p>
       </div>
-      <div class="logo-strip">
-  <div class="logo-placeholder"><img src="partner-1.png" alt=""></div>
-  <div class="logo-placeholder"><img src="partner-2.png" alt=""></div>
-  <div class="logo-placeholder"><img src="partner-3.png" alt=""></div>
-  <div class="logo-placeholder"><img src="partner-4.png" alt=""></div>
-  <div class="logo-placeholder"><img src="partner-5.png" alt=""></div>
-  <div class="logo-placeholder"><img src="partner-6.png" alt=""></div>
-  <div class="logo-placeholder"><img src="partner-7.png" alt=""></div>
-</div>
+      
+      <div class="logo-slider">
+        <div class="logo-track">
+          <div class="logo-placeholder"><img src="partner-1.png" alt="Partner logó 1"></div>
+          <div class="logo-placeholder"><img src="partner-2.png" alt="Partner logó 2"></div>
+          <div class="logo-placeholder"><img src="partner-3.png" alt="Partner logó 3"></div>
+          <div class="logo-placeholder"><img src="partner-4.png" alt="Partner logó 4"></div>
+          <div class="logo-placeholder"><img src="partner-5.png" alt="Partner logó 5"></div>
+          <div class="logo-placeholder"><img src="partner-6.png" alt="Partner logó 6"></div>
+          <div class="logo-placeholder"><img src="partner-7.png" alt="Partner logó 7"></div>
+
+          <div class="logo-placeholder"><img src="partner-1.png" alt="Partner logó 1"></div>
+          <div class="logo-placeholder"><img src="partner-2.png" alt="Partner logó 2"></div>
+          <div class="logo-placeholder"><img src="partner-3.png" alt="Partner logó 3"></div>
+          <div class="logo-placeholder"><img src="partner-4.png" alt="Partner logó 4"></div>
+          <div class="logo-placeholder"><img src="partner-5.png" alt="Partner logó 5"></div>
+          <div class="logo-placeholder"><img src="partner-6.png" alt="Partner logó 6"></div>
+          <div class="logo-placeholder"><img src="partner-7.png" alt="Partner logó 7"></div>
+        </div>
       </div>
+
     </div>
   </section>
 
