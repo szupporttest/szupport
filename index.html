@@ -232,12 +232,12 @@ h3{font-size:1.26rem}
   height:auto;
   object-fit:contain;
   display:block;
-  filter:grayscale(100%) opacity(.82);
-  transition:filter .28s ease, transform .28s ease;
+  filter:none;
+  opacity:1;
+  transition:transform .28s ease;
 }
 .logo-placeholder:hover img{
-  filter:grayscale(0%) opacity(1);
-  transform:scale(1.03);
+  transform:scale(1.05);
 }
 @keyframes logoScroll{
   from{transform:translateX(0)}
